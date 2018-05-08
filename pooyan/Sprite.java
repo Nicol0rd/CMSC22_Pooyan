@@ -12,7 +12,7 @@ public class Sprite{
 	
 	public final int MINIMUM_Y_WOLF = 555;
 	public final int MAXIMUM_Y_WOLF = 75;
-	 
+
 
 	public Sprite(int x, int y, String filename){
 		this.x = x;
@@ -56,5 +56,9 @@ public class Sprite{
 
 	public void setThisAppear(boolean value){
 		this.thisAppear = true;
+	}
+
+	public void incY(){
+		this.y += 5;
 	}
 }

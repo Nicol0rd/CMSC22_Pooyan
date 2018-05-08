@@ -3,27 +3,25 @@ import java.util.Random;
 public class Wolf extends Sprite implements Runnable{
 	private boolean isShot;
 	private Balloon balloon;
-
-	public Wolf(int x, int y, String filename) {
-		super(x,y,filename);	
+	private final int WOLF_START = 555;
+	private final int WOLF_FINISH = 75;
+	public Wolf(String filename) {
+		super(filename);	
+		Random rn = new Random();
+		this.x = (rn.nextInt(4)+1)*200;
+		this.y = WOLF_START;
 		this.balloon = new Balloon();
 		this.isShot = false;
 	}
 	
 
-	
-	
+	public void move(){
+		this.y -=10;
+	}
 
-
-
-
-
-
-
-
-
-
-
+	// public void throw(){
+	// 	// new Rock(this.
+	// }
 
 
 
@@ -40,28 +38,5 @@ public class Wolf extends Sprite implements Runnable{
 	public void climb(Ladder ladder) {
 		ladder.occupy(this);
 	}
-	public void shoot(MamaPig mamaPig) {
-		Random r = new Random();
-		boolean success = r.nextBoolean();
-		if(success == true) {
-			System.out.println("Wolf shot MamaPig!");
-		}
-		else{
-			System.out.println("Wolf missed!");
-		}
-	}
-	public void attack(MamaPig mamaPig) {
-		if(mamaPig.getLife() == 1) {
-			mamaPig.isEaten();
-		}
-		else
-			mamaPig.isHit();
-	}
-	public void move() {
-		this.height++;
-	}
 
-	public int height(){
-		return this.height;
-	}
 }

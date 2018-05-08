@@ -1,7 +1,7 @@
 package pooyan;
 import java.util.Random;
 import java.util.ArrayList;
-public class MamaPig extends Sprite implements Runnable {
+public class MamaPig extends Sprite{
 	private int dX,dY;
 	private int life;
 	private Weapon weapon;
@@ -10,7 +10,7 @@ public class MamaPig extends Sprite implements Runnable {
 	private int killCount;
 	private boolean hasMeatSlab;
 	private ArrayList<Arrow> arrows;
-	private String arrowFilename = "arrow.png"
+	private String arrowFilename = "arrow.png";
 
 	public MamaPig(int x, int y, String filename) {
 		super(x,y,filename);
@@ -29,9 +29,24 @@ public class MamaPig extends Sprite implements Runnable {
 		return this.arrows;
 	}
 	
+	public int getDX(){
+		return this.dx;
+	}
+	public int getDY(){
+		return this.dy;
+	}
+	public void setDX(int dx){
+		this.dx = dx;
+	}
 	
+	public void setDY(int dy){
+		this.dy = dy;
+	}
 
-
+	public void move(){
+		x += this.dx;
+		y += this.dy;	
+	}
 
 
 
